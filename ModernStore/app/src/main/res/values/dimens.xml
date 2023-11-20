@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="welcome">30sp</dimen>
+    <dimen name="slogan">20sp</dimen>
+
+    <dimen name="button_big">20sp</dimen>
+    <dimen name="button_medium">18sp</dimen>
+    <dimen name="button_small">16sp</dimen>
+
+    <dimen name="h1">30sp</dimen>
+    <dimen name="h2">28sp</dimen>
+    <dimen name="h3">26sp</dimen>
+    <dimen name="h4">22sp</dimen>
+    <dimen name="h5">16sp</dimen>
+
+    <dimen name="padding_big">20dp</dimen>
+    <dimen name="padding_medium">18dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="padding_mini">14dp</dimen>
+    <dimen name="padding_border">12dp</dimen>
+
+    <dimen name="input_big">62dp</dimen>
+    <dimen name="input_medium">56dp</dimen>
+    <dimen name="input_small">52dp</dimen>
+</resources>

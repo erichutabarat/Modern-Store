@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Modern Store</string>
+    <string name="home_greetings">Welcome To Modern Store</string>
+    <string name="slogan_1">Shopping with easier and faster</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="next">Next</string>
+
+
+    <string name="alt_img_for_dummy">Dummy image</string>
+
+    <string name="label_email">Email: </string>
+    <string name="hint_email">example@gmail.com</string>
+    <string name="label_username">Username: </string>
+    <string name="hint_username">input username</string>
+    <string name="label_password">Password: </string>
+    <string name="hint_password">input password</string>
+    <string name="dont_have_account">Dont have account? Register Here</string>
+    <string name="have_account">Already have account? Login Here</string>
+
+    <string name="login_activity">Login Pages</string>
+    <string name="register_activity">Register Pages</string>
+</resources>

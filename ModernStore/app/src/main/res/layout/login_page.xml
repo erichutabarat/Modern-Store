@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_border">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textSize="@dimen/h1"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:labelFor="@id/login_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_username"
+        android:textSize="@dimen/h4"
+        />
+    <EditText
+        android:id="@+id/login_username"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/input_big"
+        android:hint="@string/hint_username"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColorHint="#8D6E63"
+        tools:ignore="LabelFor,VisualLintTextFieldSize" />
+    <TextView
+        android:labelFor="@id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_password"
+        android:textSize="@dimen/h4"
+        />
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/input_big"
+        android:hint="@string/hint_password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textColorHint="#8D6E63"
+        tools:ignore="LabelFor,VisualLintTextFieldSize" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/login"
+        android:textSize="@dimen/button_medium"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/from_login_to_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dont_have_account"
+        android:textAlignment="center"
+        android:textSize="@dimen/h5"
+        />
+</LinearLayout>
