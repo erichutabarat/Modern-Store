@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import com.modernstore.app.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +36,12 @@ class ShoppingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.shopping_fragment, container, false)
+        val view = inflater.inflate(R.layout.shopping_fragment, container, false)
+        val searchview : SearchView = view.findViewById(R.id.searchView)
+        searchview.isIconified = false
+        searchview.setQuery("Search Product", false)
+        searchview.clearFocus()
+        return view;
     }
 
     companion object {

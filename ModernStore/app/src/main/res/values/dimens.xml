@@ -22,4 +22,6 @@
     <dimen name="input_big">62dp</dimen>
     <dimen name="input_medium">56dp</dimen>
     <dimen name="input_small">52dp</dimen>
+
+    <dimen name="heigh_medium">60dp</dimen>
 </resources>
