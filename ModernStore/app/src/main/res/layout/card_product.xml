@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/padding_mini"
     android:background="@drawable/border_background">
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="@dimen/product_thumbnail_width"
+        android:layout_height="@dimen/product_thumbnail_height"
+        android:src="@drawable/dummy"
+        android:scaleType="centerInside"
+        android:layout_centerVertical="true"
+        android:contentDescription="Thumbnail"
+        android:layout_margin="@dimen/padding_small"/>
+
     <TextView
         android:id="@+id/product_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test product"
-        android:textSize="@dimen/h3"
-        android:textColor="@color/black"
-        />
+        android:layout_toEndOf="@id/product_image"
+        android:textSize="@dimen/product_title"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/product_caregory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_title"
+        android:layout_toEndOf="@id/product_image"
+        android:textSize="@dimen/product_category"/>
     <TextView
         android:id="@+id/product_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Price: 18.00"
-        android:textSize="@dimen/h4"
-    />
-</LinearLayout>
+        android:layout_below="@id/product_caregory"
+        android:layout_toEndOf="@id/product_image"
+        android:textSize="@dimen/product_price"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_price"
+        android:layout_toEndOf="@id/product_image"
+        android:background="@color/blue"
+        android:text="@string/addtocart"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h5"
+        tools:ignore="TextContrastCheck" />
+</RelativeLayout>
