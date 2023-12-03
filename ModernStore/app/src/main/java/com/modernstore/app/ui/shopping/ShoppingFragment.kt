@@ -1,15 +1,14 @@
 package com.modernstore.app.ui.shopping
 
-import android.content.Context
+import com.modernstore.app.data.api.RetrofitClient
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.modernstore.app.R
@@ -19,7 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ShoppingFragment : Fragment() {
-    lateinit var recyclerView : RecyclerView
+    private lateinit var recyclerView : RecyclerView
     private fun fetchData(callback: (List<Product>?, Throwable?) -> Unit) {
         val apiService = RetrofitClient.apiService
         val call: Call<List<Product>> = apiService.getproducts()
@@ -56,11 +55,8 @@ class ShoppingFragment : Fragment() {
         searchview.isIconified = false
         searchview.setQuery("Search Product", false)
         searchview.clearFocus()
-        // recyclerview
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
-        // Call fetchData and set up the adapter inside the callback
         fetchData { products, error ->
             if (error != null) {
                 // Handle error

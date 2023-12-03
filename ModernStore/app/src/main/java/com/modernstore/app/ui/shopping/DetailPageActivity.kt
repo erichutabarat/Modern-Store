@@ -1,5 +1,6 @@
 package com.modernstore.app.ui.shopping
 
+import com.modernstore.app.data.api.RetrofitClient
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +10,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.bumptech.glide.Glide
 import com.modernstore.app.MainActivity
 import com.modernstore.app.R
@@ -75,6 +75,20 @@ class DetailPageActivity : AppCompatActivity() {
                             .error(R.drawable.dummy)
                             .centerInside()
                             .into(imagex)
+                        val recyclerviewcat : RecyclerView = findViewById(R.id.recyclerViewCat)
+                        recyclerviewcat.layoutManager = LinearLayoutManager(this@DetailPageActivity)
+                        fetchDataCat { products, error ->
+                            if (error != null) {
+                                // Handle error
+                                Log.e("API", "Error: $error")
+                            } else {
+                                // Set up the adapter with the retrieved list of products
+                                val adapter = ProductAdapter(products ?: emptyList()) { product ->
+                                    onItemClick(product)
+                                }
+                                recyclerviewcat.adapter = adapter
+                            }
+                        }
                     }
                 } else {
                     Log.e("API Error", "Failed to fetch product details")
@@ -90,20 +104,6 @@ class DetailPageActivity : AppCompatActivity() {
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
             finish()
-        }
-        val recyclerviewcat : RecyclerView = findViewById(R.id.recyclerViewCat)
-        recyclerviewcat.layoutManager = LinearLayoutManager(this)
-        fetchDataCat { products, error ->
-            if (error != null) {
-                // Handle error
-                Log.e("API", "Error: $error")
-            } else {
-                // Set up the adapter with the retrieved list of products
-                val adapter = ProductAdapter(products ?: emptyList()) { product ->
-                    onItemClick(product)
-                }
-                recyclerviewcat.adapter = adapter
-            }
         }
     }
     private fun onItemClick(product: Product) {

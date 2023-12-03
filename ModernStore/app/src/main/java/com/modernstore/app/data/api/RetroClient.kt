@@ -1,4 +1,5 @@
-import com.modernstore.app.data.api.API
+package com.modernstore.app.data.api
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

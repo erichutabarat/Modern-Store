@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.modernstore.app.MainActivity
 import com.modernstore.app.R
 import com.modernstore.app.db.roomdb.AppDatabase
 import com.modernstore.app.db.roomdb.User
@@ -25,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         appDatabase = AppDatabase.getInstance(this)
         val toLogin : TextView = findViewById(R.id.from_register_to_login)
         toLogin.setOnClickListener {
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
             finish()
         }

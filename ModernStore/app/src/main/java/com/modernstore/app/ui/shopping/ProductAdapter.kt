@@ -1,5 +1,6 @@
 package com.modernstore.app.ui.shopping
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.modernstore.app.R
 import com.modernstore.app.data.model.Product
-import org.w3c.dom.Text
 
 class ProductAdapter(
     private val products: List<Product>,
     private val clickListener: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
-
-    interface OnItemClickListener {
-        fun onItemClick(product: Product)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -37,6 +33,7 @@ class ProductAdapter(
     override fun getItemCount(): Int = products.size
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(product: Product) {
             itemView.findViewById<TextView>(R.id.product_title).text = product.title
             itemView.findViewById<TextView>(R.id.product_price).text = "$${product.price}"
