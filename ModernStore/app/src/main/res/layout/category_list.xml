@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_background"
+    android:padding="@dimen/padding_small"
+    android:gravity="center">
+    <ImageView
+        android:layout_width="@dimen/category_width"
+        android:layout_height="@dimen/category_height"
+        android:src="@drawable/shirt_icon"
+        android:contentDescription="@string/shirt"
+        android:background="@drawable/border_background"
+        android:layout_marginRight="@dimen/gap_category"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/category_width"
+        android:layout_height="@dimen/category_height"
+        android:background="@drawable/border_background"
+        android:contentDescription="@string/dress"
+        android:src="@drawable/dress_icon"
+        tools:ignore="ImageContrastCheck"
+        android:layout_marginRight="@dimen/gap_category"
+        />
+    <ImageView
+        android:layout_width="@dimen/category_width"
+        android:layout_height="@dimen/category_height"
+        android:src="@drawable/jewelry_icon"
+        android:contentDescription="@string/jewelry"
+        android:background="@drawable/border_background"
+        android:layout_marginRight="@dimen/gap_category"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/category_width"
+        android:layout_height="@dimen/category_height"
+        android:background="@drawable/border_background"
+        android:contentDescription="@string/electronic"
+        android:src="@drawable/electronic_icon"
+        tools:ignore="ImageContrastCheck" />
+</LinearLayout>

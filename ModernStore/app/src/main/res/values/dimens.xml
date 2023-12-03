@@ -30,4 +30,8 @@
     <dimen name="product_price">12sp</dimen>
     <dimen name="product_thumbnail_width">159dp</dimen>
     <dimen name="product_thumbnail_height">132dp</dimen>
+
+    <dimen name="category_height">40dp</dimen>
+    <dimen name="category_width">40dp</dimen>
+    <dimen name="gap_category">3dp</dimen>
 </resources>

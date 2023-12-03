@@ -31,4 +31,9 @@
 
     <string name="addtocart">Add To Cart</string>
     <string name="checkout">Checkout</string>
+
+    <string name="shirt">shirt</string>
+    <string name="dress">dress</string>
+    <string name="jewelry">jewelry</string>
+    <string name="electronic">electronic</string>
 </resources>
