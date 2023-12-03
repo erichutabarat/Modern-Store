@@ -38,6 +38,8 @@
     <string name="electronic">electronic</string>
     <string name="title_activity_detail_page">Detail Product</string>
 
+    <string name="pleaselogin">Please Login First!</string>
+
     <string name="category">Category: </string>
     <string name="price">Price: </string>
     <string name="description">Description: </string>

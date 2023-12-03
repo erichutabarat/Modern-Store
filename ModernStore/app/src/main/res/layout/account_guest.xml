@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titlepleaselogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/h2"
+        android:text="@string/pleaselogin"
+        android:textAlignment="center"
+        android:padding="@dimen/padding_medium"
+        />
+    <LinearLayout
+        android:id="@+id/menuuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/fromguest_tologin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="@dimen/h4" />
+
+        <Button
+            android:id="@+id/fromguest_toregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textSize="@dimen/h4" />
+    </LinearLayout>
+
+</RelativeLayout>
