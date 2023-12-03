@@ -24,7 +24,7 @@
     <dimen name="input_small">52dp</dimen>
 
     <dimen name="heigh_medium">60dp</dimen>
-
+    <dimen name="height_bottonnav">70dp</dimen>
     <dimen name="product_title">15sp</dimen>
     <dimen name="product_category">13sp</dimen>
     <dimen name="product_price">14sp</dimen>
