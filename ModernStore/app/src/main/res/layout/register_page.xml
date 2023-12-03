@@ -4,14 +4,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_background"
     android:padding="@dimen/padding_big">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="@string/register"
-        android:textSize="@dimen/h1"
         android:textAlignment="center"
-        />
+        android:textColor="@color/white"
+        android:textSize="@dimen/h1"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:labelFor="@id/register_email"
@@ -19,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/label_email"
         android:textSize="@dimen/h4"
+        android:layout_marginTop="50dp"
         />
     <EditText
         android:id="@+id/register_email"
