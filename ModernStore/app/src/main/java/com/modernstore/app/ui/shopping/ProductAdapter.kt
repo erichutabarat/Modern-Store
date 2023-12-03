@@ -11,8 +11,14 @@ import com.modernstore.app.R
 import com.modernstore.app.data.model.Product
 import org.w3c.dom.Text
 
-class ProductAdapter(private val products: List<Product>) :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(
+    private val products: List<Product>,
+    private val clickListener: (Product) -> Unit
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(product: Product)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -23,6 +29,9 @@ class ProductAdapter(private val products: List<Product>) :
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            clickListener(product)
+        }
     }
 
     override fun getItemCount(): Int = products.size

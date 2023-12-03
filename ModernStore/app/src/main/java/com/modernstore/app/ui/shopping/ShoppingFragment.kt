@@ -1,5 +1,6 @@
 package com.modernstore.app.ui.shopping
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -65,11 +66,21 @@ class ShoppingFragment : Fragment() {
                 Log.e("API", "Error: $error")
             } else {
                 // Set up the adapter with the retrieved list of products
-                val adapter = ProductAdapter(products ?: emptyList())
+                val adapter = ProductAdapter(products ?: emptyList()) { product ->
+                    onItemClick(product)
+                }
                 recyclerView.adapter = adapter
             }
         }
 
         return view
+    }
+    fun onItemClick(product: Product) {
+        // Handle the item click here
+        // Launch DetailPageActivity and pass the product details
+        val intent = Intent(context, DetailPageActivity::class.java)
+        intent.putExtra("productId", product.id)
+        // Add more product details as needed
+        startActivity(intent)
     }
 }
