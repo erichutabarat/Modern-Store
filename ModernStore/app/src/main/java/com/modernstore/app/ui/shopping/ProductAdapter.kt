@@ -31,7 +31,7 @@ class ProductAdapter(private val products: List<Product>) :
         fun bind(product: Product) {
             itemView.findViewById<TextView>(R.id.product_title).text = product.title
             itemView.findViewById<TextView>(R.id.product_price).text = "$${product.price}"
-            itemView.findViewById<TextView>(R.id.product_caregory).text = product.category
+            itemView.findViewById<TextView>(R.id.product_category).text = product.category
             val productImage = itemView.findViewById<ImageView>(R.id.product_image)
             // Load image using Glide
             Glide.with(itemView)
