@@ -1,5 +1,6 @@
 package com.modernstore.app.ui.shopping
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -75,12 +76,12 @@ class ShoppingFragment : Fragment() {
 
         return view
     }
-    fun onItemClick(product: Product) {
-        // Handle the item click here
-        // Launch DetailPageActivity and pass the product details
-        val intent = Intent(context, DetailPageActivity::class.java)
+    private fun onItemClick(product: Product) {
+        val intent = Intent(this@ShoppingFragment.context, DetailPageActivity::class.java)
         intent.putExtra("productId", product.id)
-        // Add more product details as needed
+        intent.putExtra("category", product.category)
         startActivity(intent)
     }
+
+
 }

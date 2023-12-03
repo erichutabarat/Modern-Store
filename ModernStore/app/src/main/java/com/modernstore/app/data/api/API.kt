@@ -10,4 +10,7 @@ interface API {
     fun getproducts(): Call<List<Product>>
     @GET("products/{productId}")
     fun getProductById(@Path("productId") productId: Int): Call<Product>
+
+    @GET("products/{cat}")
+    fun getProductByCat(@Path("cat") cat: String): Call<List<Product>>
 }

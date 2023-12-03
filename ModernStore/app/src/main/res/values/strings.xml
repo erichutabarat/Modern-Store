@@ -37,7 +37,7 @@
     <string name="jewelry">jewelry</string>
     <string name="electronic">electronic</string>
     <string name="title_activity_detail_page">Detail Product</string>
-
+    <string name="similiar_product">Similiar Product</string>
     <string name="pleaselogin">Please Login First!</string>
     <string name="logout">Logout</string>
     <string name="category">Category: </string>
