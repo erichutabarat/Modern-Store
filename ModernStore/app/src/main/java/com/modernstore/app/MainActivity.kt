@@ -1,26 +1,24 @@
 package com.modernstore.app
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.modernstore.app.db.roomdb.AppDatabase
 import com.modernstore.app.ui.account.AccountFragment
 import com.modernstore.app.ui.cart.CartFragment
-import com.modernstore.app.ui.login.LoginActivity
-import com.modernstore.app.ui.register.RegisterActivity
 import com.modernstore.app.ui.shopping.ShoppingFragment
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNav : BottomNavigationView
-
+    private lateinit var bottomNav : BottomNavigationView
+    private lateinit var appDatabase: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        appDatabase = AppDatabase.getInstance(this)
         loadFragment(ShoppingFragment())
-        bottomNav = findViewById(R.id.bottomnav) as BottomNavigationView
+        bottomNav = findViewById(R.id.bottomnav)
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {

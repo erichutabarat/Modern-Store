@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.modernstore.app.MainActivity
 import com.modernstore.app.R
 import com.modernstore.app.db.preferencemanager.SharedPreferencesHelper
 import com.modernstore.app.ui.login.LoginActivity
@@ -32,6 +34,15 @@ class AccountFragment : Fragment() {
             val i = Intent(requireActivity(), RegisterActivity::class.java)
             startActivity(i)
         }
+        val logoutButton : Button = rootView.findViewById(R.id.logoutbutton)
+        logoutButton.setOnClickListener {
+            sharedpreferences.clearPreferences()
+            sharedpreferences.LoggedIn(false)
+            val i = Intent(requireActivity(), MainActivity::class.java)
+            startActivity(i)
+        }
+        val userShow : TextView = rootView.findViewById(R.id.showuser)
+        userShow.text = sharedpreferences.getUserLogged().toString()
         return rootView
     }
 }
