@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -28,6 +29,8 @@ class CartFragment : Fragment() {
         sharedpreferences = SharedPreferencesHelper(requireContext())
         appDatabase = AppDatabase.getInstance(requireContext())
         if(sharedpreferences.getLoggedIn()){
+            val checkoutButton: Button = rootView.findViewById(R.id.checkoutbutton)
+            checkoutButton.visibility = View.VISIBLE
             try {
                 lifecycleScope.launch {
                     val getUserId = withContext(Dispatchers.IO) {
@@ -54,6 +57,8 @@ class CartFragment : Fragment() {
         else{
             val announce: TextView = rootView.findViewById(R.id.cart_notif)
             announce.text = getString(R.string.pleaselogin)
+            val checkoutButton: Button = rootView.findViewById(R.id.checkoutbutton)
+            checkoutButton.visibility = View.GONE
         }
         return rootView
     }
