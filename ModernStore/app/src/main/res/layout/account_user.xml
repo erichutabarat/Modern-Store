@@ -1,20 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/showuser"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/h5"
-        />
-    <Button
-        android:id="@+id/logoutbutton"
-        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_big"
+        android:background="@color/blue"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/account"
+            android:padding="@dimen/padding_small"
+            android:src="@drawable/user_profile"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/showuser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_small"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h3"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textSize="@dimen/h3"
-        android:layout_gravity="center"
-        />
+        android:padding="@dimen/padding_big"
+        android:orientation="vertical"
+        android:background="@drawable/border_background">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/myorder"
+            android:textSize="@dimen/h4"
+            android:textColor="@color/black"
+            android:padding="@dimen/padding_small"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/padding_big"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account_setting"
+            android:textSize="@dimen/h5"
+            android:background="@drawable/border_background"
+            android:padding="@dimen/padding_small"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/faq"
+            android:textSize="@dimen/h5"
+            android:background="@drawable/border_background"
+            android:padding="@dimen/padding_small"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/helpcenter"
+            android:textSize="@dimen/h5"
+            android:background="@drawable/border_background"
+            android:padding="@dimen/padding_small"
+            />
+        <TextView
+            android:id="@+id/logoutbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:textSize="@dimen/h5"
+            android:background="@drawable/border_background"
+            android:padding="@dimen/padding_small"
+            />
+    </LinearLayout>
 </LinearLayout>

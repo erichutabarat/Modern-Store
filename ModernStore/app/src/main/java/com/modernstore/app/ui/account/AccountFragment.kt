@@ -34,7 +34,7 @@ class AccountFragment : Fragment() {
             val i = Intent(requireActivity(), RegisterActivity::class.java)
             startActivity(i)
         }
-        val logoutButton : Button = rootView.findViewById(R.id.logoutbutton)
+        val logoutButton : TextView = rootView.findViewById(R.id.logoutbutton)
         logoutButton.setOnClickListener {
             sharedpreferences.clearPreferences()
             sharedpreferences.LoggedIn(false)

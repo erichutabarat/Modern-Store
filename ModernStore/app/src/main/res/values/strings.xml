@@ -28,7 +28,10 @@
     <string name="all_product">Featured Product</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="myorder">My Order</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="faq">Faq</string>
+    <string name="helpcenter">Help Center</string>
     <string name="addtocart">Add To Cart</string>
     <string name="checkout">Checkout</string>
     <string name="back">Back</string>
