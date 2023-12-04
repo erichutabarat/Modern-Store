@@ -11,6 +11,6 @@ interface API {
     @GET("products/{productId}")
     fun getProductById(@Path("productId") productId: Int): Call<Product>
 
-    @GET("products/{cat}")
+    @GET("products/category/{cat}")
     fun getProductByCat(@Path("cat") cat: String): Call<List<Product>>
 }

@@ -25,3 +25,11 @@ interface UserDao {
     @Query("SELECT COUNT(*) FROM users WHERE username = :username AND password = :password")
     suspend fun isValidUser(username: String, password: String): Boolean
 }
+@Dao
+interface CartDao {
+    @Insert
+    fun insertCart(cart: Cart)
+
+    @Query("SELECT * FROM carts WHERE userId = :userId")
+    fun getCartsByUser(userId: Long): List<Cart>
+}

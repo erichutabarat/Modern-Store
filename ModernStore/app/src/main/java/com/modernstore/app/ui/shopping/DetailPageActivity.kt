@@ -1,5 +1,6 @@
 package com.modernstore.app.ui.shopping
 
+import android.annotation.SuppressLint
 import com.modernstore.app.data.api.RetrofitClient
 import android.content.Intent
 import android.os.Bundle
@@ -20,6 +21,7 @@ import retrofit2.Response
 
 class DetailPageActivity : AppCompatActivity() {
     private lateinit var categories: String
+    private lateinit var adapter: ProductAdapter
     private fun fetchDataCat(callback: (List<Product>?, Throwable?) -> Unit) {
         val apiService = RetrofitClient.apiService
         val call: Call<List<Product>> = apiService.getProductByCat(categories)
@@ -28,7 +30,7 @@ class DetailPageActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val products: List<Product>? = response.body()
                     products?.let {
-                        Log.d("API:", products.toString())
+                        Log.d("API Result:", products.toString())
                         callback(products, null)
                     }
                 } else {
@@ -43,6 +45,7 @@ class DetailPageActivity : AppCompatActivity() {
             }
         })
     }
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detail_page)
@@ -75,20 +78,6 @@ class DetailPageActivity : AppCompatActivity() {
                             .error(R.drawable.dummy)
                             .centerInside()
                             .into(imagex)
-                        val recyclerviewcat : RecyclerView = findViewById(R.id.recyclerViewCat)
-                        recyclerviewcat.layoutManager = LinearLayoutManager(this@DetailPageActivity)
-                        fetchDataCat { products, error ->
-                            if (error != null) {
-                                // Handle error
-                                Log.e("API", "Error: $error")
-                            } else {
-                                // Set up the adapter with the retrieved list of products
-                                val adapter = ProductAdapter(products ?: emptyList()) { product ->
-                                    onItemClick(product)
-                                }
-                                recyclerviewcat.adapter = adapter
-                            }
-                        }
                     }
                 } else {
                     Log.e("API Error", "Failed to fetch product details")
@@ -105,15 +94,28 @@ class DetailPageActivity : AppCompatActivity() {
             startActivity(i)
             finish()
         }
+        val recyclerviewcat: RecyclerView = findViewById(R.id.recyclerViewCat)
+        recyclerviewcat.layoutManager = LinearLayoutManager(this@DetailPageActivity)
+
+        fetchDataCat { products, error ->
+            if (error != null) {
+                // Handle error
+                Log.e("API", "Error: $error")
+                Log.d("Categories:", "Show: $categories")
+            } else {
+                // Set up the adapter with the retrieved list of products
+                adapter = ProductAdapter(products ?: emptyList()) { product ->
+                    onItemClick(product)
+                }
+                recyclerviewcat.adapter = adapter
+                adapter.notifyDataSetChanged()
+            }
+        }
     }
     private fun onItemClick(product: Product) {
-        // Handle the item click here
-        // Launch DetailPageActivity and pass the product details
         val intent = Intent(this@DetailPageActivity, DetailPageActivity::class.java)
         intent.putExtra("productId", product.id)
-        intent.putExtra("category", product.category) // Pass the category
-        // Add more product details as needed
+        intent.putExtra("category", product.category)
         startActivity(intent)
     }
-
 }
