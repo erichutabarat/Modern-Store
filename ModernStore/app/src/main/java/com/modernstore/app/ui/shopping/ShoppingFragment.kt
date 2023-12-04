@@ -50,11 +50,6 @@ class ShoppingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.shopping_fragment, container, false)
-        // searchview
-        val searchview: SearchView = view.findViewById(R.id.searchView)
-        searchview.isIconified = false
-        searchview.setQuery("Search Product", false)
-        searchview.clearFocus()
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         fetchData { products, error ->

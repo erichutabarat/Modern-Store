@@ -9,13 +9,39 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/heigh_medium"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
             android:background="@color/blue"
-            android:layout_gravity="top|center" />
+            android:padding="@dimen/padding_mini"
+            android:orientation="horizontal">
 
+            <EditText
+                android:id="@+id/searchkeyword"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="@dimen/h5"
+                android:padding="@dimen/padding_mini"
+                android:layout_marginStart="10dp"
+                android:background="@color/white"
+                tools:ignore="LabelFor,VisualLintTextFieldSize"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:text="@string/search"
+                android:textSize="@dimen/h4"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/border_background"
+                android:paddingVertical="@dimen/padding_mini"
+                android:textAlignment="center"/>
+        </LinearLayout>
         <include
             android:id="@+id/category_list"
             layout="@layout/category_list"
@@ -34,15 +60,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/card_product" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="NEXT" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
