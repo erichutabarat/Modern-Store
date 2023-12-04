@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="welcome">30sp</dimen>
-    <dimen name="slogan">20sp</dimen>
+    <dimen name="welcome">35sp</dimen>
+    <dimen name="slogan">32sp</dimen>
 
     <dimen name="button_big">20sp</dimen>
     <dimen name="button_medium">18sp</dimen>
