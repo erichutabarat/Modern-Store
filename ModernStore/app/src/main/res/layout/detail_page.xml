@@ -9,11 +9,46 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:background="@color/blue"
+            android:padding="@dimen/padding_mini"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/searchkeyword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.7"
+                android:background="@color/white"
+                android:inputType="text"
+                android:padding="@dimen/padding_mini"
+                android:textSize="@dimen/h5"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.3"
+                android:background="@drawable/border_background"
+                android:paddingVertical="@dimen/padding_mini"
+                android:text="@string/search"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h4"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
         <Button
             android:id="@+id/from_detail_to_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
+            android:background="@color/white"
             />
         <TextView
             android:layout_width="match_parent"
@@ -122,7 +157,7 @@
             android:layout_height="wrap_content"
             android:text="@string/addtocart"
             android:textColor="@color/white"
-            android:textSize="@dimen/h5"
+            android:textSize="@dimen/h3"
             android:paddingVertical="@dimen/padding_button_ve"
             android:paddingHorizontal="@dimen/padding_button_ho"
             android:layout_gravity="center"
