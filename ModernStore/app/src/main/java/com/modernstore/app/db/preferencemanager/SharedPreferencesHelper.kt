@@ -22,8 +22,8 @@ class SharedPreferencesHelper(context: Context) {
         editor.putString("UserLogged", userlogged)
         editor.apply()
     }
-    fun getUserLogged(): String? {
-        return sharedPreferences.getString("UserLogged", "nothing")
+    fun getUserLogged(): String {
+        return sharedPreferences.getString("UserLogged", "nothing").toString()
     }
     fun clearPreferences() {
         val editor = sharedPreferences.edit()

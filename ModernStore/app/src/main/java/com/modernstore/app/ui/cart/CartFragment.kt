@@ -1,60 +1,60 @@
 package com.modernstore.app.ui.cart
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.modernstore.app.R
+import com.modernstore.app.db.preferencemanager.SharedPreferencesHelper
+import com.modernstore.app.db.roomdb.AppDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var sharedpreferences: SharedPreferencesHelper
+    private lateinit var appDatabase: AppDatabase
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.cart_fragment, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CartFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CartFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        val rootView = inflater.inflate(R.layout.cart_fragment, container, false)
+        sharedpreferences = SharedPreferencesHelper(requireContext())
+        appDatabase = AppDatabase.getInstance(requireContext())
+        if(sharedpreferences.getLoggedIn()){
+            try {
+                lifecycleScope.launch {
+                    val getUserId = withContext(Dispatchers.IO) {
+                        appDatabase.userDao().getIdByUsername(sharedpreferences.getUserLogged()).toLong()
+                    }
+                    val cartList = withContext(Dispatchers.IO) {
+                        appDatabase.cartDao().getCartsByUser(getUserId)
+                    }
+                    if (cartList.isEmpty()) {
+                        val announce: TextView = rootView.findViewById(R.id.cart_notif)
+                        announce.text = getString(R.string.cartempty)
+                    }
+                    else{
+                        val recyclerViewCart: RecyclerView = rootView.findViewById(R.id.recyclerViewCart)
+                        val adapter = CartAdapter(cartList)
+                        recyclerViewCart.adapter = adapter
+                    }
                 }
             }
+            catch(e: Exception){
+                Log.d("Lifecycle Error:", "Error with ${e.message}")
+            }
+        }
+        else{
+            val announce: TextView = rootView.findViewById(R.id.cart_notif)
+            announce.text = getString(R.string.pleaselogin)
+        }
+        return rootView
     }
 }

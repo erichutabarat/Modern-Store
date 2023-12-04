@@ -22,6 +22,9 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE username = :username")
     fun getUserByUsername(username: String): User?
 
+    @Query("SELECT id from users WHERE username =:username")
+    fun getIdByUsername(username: String): Int
+
     @Query("SELECT COUNT(*) FROM users WHERE username = :username AND password = :password")
     suspend fun isValidUser(username: String, password: String): Boolean
 }

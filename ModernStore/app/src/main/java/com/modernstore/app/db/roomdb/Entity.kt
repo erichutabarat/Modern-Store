@@ -26,6 +26,8 @@ data class User(
 data class Cart(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+    val title: String,
+    val imageSrc: String,
     val userId: Long,
     val productId: Long,
     val productPrice: Double

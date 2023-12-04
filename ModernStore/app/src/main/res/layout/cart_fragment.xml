@@ -1,36 +1,51 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/heigh_medium"
-        android:background="@color/blue"
-        android:layout_gravity="top|center"
-        app:layout_constraintTop_toTopOf="parent" />
-    
+        android:background="@color/blue"/>
+
     <TextView
-        android:id="@+id/all_product"
+        android:id="@+id/cart_page_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cart"
-        app:layout_constraintTop_toBottomOf="@id/searchView"
         android:textSize="@dimen/h3"
         android:padding="@dimen/padding_mini"
-        android:background="@drawable/border_background"
-        />
+        android:background="@drawable/border_background" />
+
+    <TextView
+        android:id="@+id/cart_notif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/h3"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/cart_storage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/h3"
+        android:textAlignment="center" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/cart_product" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkout"
         android:textSize="@dimen/h4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/padding_mini"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
