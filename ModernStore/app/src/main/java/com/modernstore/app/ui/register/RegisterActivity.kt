@@ -41,7 +41,8 @@ class RegisterActivity : AppCompatActivity() {
                 val user = User(
                     username = getUser.text.toString(),
                     password = getPass.text.toString(),
-                    email = getEmail.text.toString()
+                    email = getEmail.text.toString(),
+                    balance = 1000.0
                 )
                 insertUser(user)
             } else {
