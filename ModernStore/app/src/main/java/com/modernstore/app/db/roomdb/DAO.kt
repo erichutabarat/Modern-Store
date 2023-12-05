@@ -39,4 +39,7 @@ interface CartDao {
 
     @Query("SELECT * FROM carts WHERE userId = :userId")
     fun getCartsByUser(userId: Long): List<Cart>
+
+    @Delete
+    fun deleteCart(cart: Cart)
 }
