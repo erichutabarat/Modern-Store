@@ -47,21 +47,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_big"
-        android:orientation="vertical"
-        android:background="@drawable/border_background">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/myorder"
-            android:textSize="@dimen/h4"
-            android:textColor="@color/black"
-            android:padding="@dimen/padding_small"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingVertical="@dimen/padding_big"
         >
