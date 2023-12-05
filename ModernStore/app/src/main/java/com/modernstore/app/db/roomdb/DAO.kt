@@ -25,7 +25,8 @@ interface UserDao {
 
     @Query("SELECT balance from users WHERE username = :username")
     fun getBalanceByUsername(username: String): Double
-
+    @Query("UPDATE users SET balance = :newBalance where username =:username")
+    fun updateBalance(newBalance: Double, username: String)
     @Query("SELECT id from users WHERE username =:username")
     fun getIdByUsername(username: String): Int
 

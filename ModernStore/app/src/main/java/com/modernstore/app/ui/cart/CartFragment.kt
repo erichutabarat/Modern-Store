@@ -92,6 +92,9 @@ class CartFragment : Fragment(), CartAdapterListener {
                                     for (item in cartlist) {
                                         appDatabase.cartDao().deleteCart(item)
                                     }
+                                    val currentBalance: Double = appDatabase.userDao().getBalanceByUsername(getUser)
+                                    val aftercheckout: Double = currentBalance - totalcart
+                                    appDatabase.userDao().updateBalance(aftercheckout, getUser)
                                 }
                                 Toast.makeText(context, "Checkout Completed", Toast.LENGTH_SHORT).show()
                                 checkOut(checkoutbutton, announce)
