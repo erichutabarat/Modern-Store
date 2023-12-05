@@ -1,6 +1,7 @@
 package com.modernstore.app.ui.cart
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -71,7 +72,7 @@ class CartFragment : Fragment(), CartAdapterListener {
         }
         return rootView
     }
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "NotifyDataSetChanged")
     private fun checkOut(checkoutbutton: TextView, announce: TextView) {
         try {
             lifecycleScope.launch(Dispatchers.IO) {
@@ -94,7 +95,8 @@ class CartFragment : Fragment(), CartAdapterListener {
                                 }
                                 Toast.makeText(context, "Checkout Completed", Toast.LENGTH_SHORT).show()
                                 checkOut(checkoutbutton, announce)
-                                recyclerViewCart.adapter?.notifyDataSetChanged()
+                                val i = Intent(requireContext(), CheckoutActivity::class.java)
+                                startActivity(i)
                             }
                         }
                     }

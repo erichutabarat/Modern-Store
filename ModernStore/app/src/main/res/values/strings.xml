@@ -35,6 +35,8 @@
     <string name="addtocart">Add To Cart</string>
     <string name="search">Search</string>
     <string name="checkout">Checkout</string>
+    <string name="checkout_complete">Thank You For Your Order!</string>
+
     <string name="back">Back</string>
     <string name="shirt">shirt</string>
     <string name="dress">dress</string>
