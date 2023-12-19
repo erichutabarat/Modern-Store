@@ -3,6 +3,11 @@
 Modern Store is ecommerce mobile app written in kotlin. Users need to register and login to apps before starting shopping.
 
 ## Features
+- Register
+- Login
+- Product List
+- Add To Cart
+- Checkout
 
 ## Tech Stack
 
