@@ -1,6 +1,6 @@
 # Modern-Store
-![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png)
-Modern Store is ecommerce mobile app written in kotlin.
+![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png) <br/>
+Modern Store is ecommerce mobile app written in kotlin. Users need to register and login to apps before starting shopping.
 
 # API SOURCE
 This app use free open source API from https://fakestoreapi.com/
