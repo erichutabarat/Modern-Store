@@ -1,4 +1,5 @@
 # Modern-Store
+![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png)
 Modern Store is ecommerce mobile app written in kotlin.
 
 # API SOURCE
