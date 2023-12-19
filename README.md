@@ -1,6 +1,10 @@
 # Modern-Store
-![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png) <br/>
-Modern Store is ecommerce mobile app written in kotlin. Users need to register and login to apps before starting shopping.
+
+<div style="text-align:center">
+  ![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png)
+</div>
+
+Modern Store is an e-commerce mobile app written in Kotlin. Users need to register and log in to the app before starting shopping.
 
 ## Features
 - Register
