@@ -1,7 +1,7 @@
 # Modern-Store
 
 <div style="text-align:center">
-  ![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png)
+  ![alt text](https://raw.githubusercontent.com/erichutabarat/Modern-Store/main/sample.png?raw=true)
 </div>
 
 Modern Store is an e-commerce mobile app written in Kotlin. Users need to register and log in to the app before starting shopping.
